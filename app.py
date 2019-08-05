@@ -12,7 +12,9 @@ def index():
         ip = request.remote_addr
     else:
         ip = request.headers.getlist("X-Forwarded-For")[0]
-
+    print(ip)
+    print(request.headers.getlist("X-Forwarded-For")[0])
+    
     if ip == "127.0.0.1" or "localhost":
         raise ValueError("localhost detected!")
     else:
