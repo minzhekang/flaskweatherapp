@@ -10,10 +10,10 @@ app.config['DEBUG'] = True
 def index():
     if not request.headers.getlist("X-Forwarded-For"):
         ip = request.remote_addr
-        print("localhost")
+        
     else:
         ip = request.headers.getlist("X-Forwarded-For")[0]
-        print("publicip")
+        
 
     s = requests.Session()
     response = s.get("http://ip-api.com/json/{}".format(ip)).json()
