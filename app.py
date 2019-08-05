@@ -22,8 +22,13 @@ def index():
     image = soup.find('span', class_='currently').find('img')['src']
     image_src = ("https://darksky.net" + image)
     
-    ip = request.remote_addr
+    if not request.headers.getlist("X-Forwarded-For"):
+        ip = request.remote_addr
+    else:
+        ip = request.headers.getlist("X-Forwarded-For")[0]
+
     print(ip)
+    print(request.headers.getlist("X-Forwarded-For")[0])
     
     weather_data = {'country': country, 'currently': currently, 'feelslike':feelslike, 'image_src': image_src}
 
