@@ -21,7 +21,10 @@ def index():
     feelslike = soup.find('span', class_='summary-high-low').find('span').text
     image = soup.find('span', class_='currently').find('img')['src']
     image_src = ("https://darksky.net" + image)
-
+    
+    ip = request.remote_addr
+    print(ip)
+    
     weather_data = {'country': country, 'currently': currently, 'feelslike':feelslike, 'image_src': image_src}
 
     return render_template('index.html', weather_data= weather_data)
