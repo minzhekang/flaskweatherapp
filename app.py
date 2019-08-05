@@ -10,12 +10,14 @@ app.config['DEBUG'] = True
 def index():
     if not request.headers.getlist("X-Forwarded-For"):
         ip = request.remote_addr
+        print("localhost")
     else:
         ip = request.headers.getlist("X-Forwarded-For")[0]
+        print("publicip")
 
     s = requests.Session()
     response = s.get("http://ip-api.com/json/{}".format(ip)).json()
-    print(response)
+
     country = response["city"]
     lat = str(response["lat"])
     long = str(response["lon"])
@@ -31,8 +33,6 @@ def index():
     
     weather_data = {'country': country, 'currently': currently, 'feelslike':feelslike, 'image_src': image_src}
 
-    print(country)
-    print(lat, long)
     return render_template('index.html', weather_data= weather_data)
     
 app.wsgi_app = ProxyFix(app.wsgi_app)
