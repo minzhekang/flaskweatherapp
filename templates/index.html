@@ -1,12 +1,41 @@
 <!DOCTYPE html>
     <head>
         <meta charset="utf-8">
+        
         <title></title>
+
+        <script type="text/javascript" src="../static/js/index.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="../static/css/index.css">
     </head>
-    <body>
+
+    <body style= "background-color:rgb(32, 32, 32); overflow-x:hidden" onload="ipLookUp()">
+        <div class = "col justify-content-center mt-4">
+            
+            
+            <h2 style= "color:rgba(255, 255, 255);" class = "row justify-content-center mt-4 flipX">Welcome to</h2>
+            <h2 style= "color:rgba(255, 255, 255); font-size: 30px;" class = "row justify-content-center mt-4" id = "name">{{ weather_data.country }}</h2>  
         
+            <div class = "row justify-content-center" style= "margin-top: 5em">
+                <img width = 160 height = 160 src="{{ weather_data.image_src }}" class="img-fluid" alt="Weather Image">
+                <div class="card" style="width: 18rem; height: 10rem">
+                    <div class="card-body">
+                        <h5 class="card-title">It is currently {{ weather_data.currently }} </h5>
+                        <p class="card-text">{{ weather_data.feelslike }}</p>
+                        <p class="card-text"><small class="text-muted">Powered by: https://darksky.net/</small></p>
+                    </div>
+                </div>  
+            </div>
+        </div>
+
         
-        
+        <!-- <div class = "row justify-content-center mt-4">
+            <div class = "flipY">
+                <img class="img-fluid" style="width:18rem" src="https://previews.123rf.com/images/alinamd/alinamd1711/alinamd171100211/91043845-bright-sunny-day-in-park.jpg">
+                </div>
+            </div> -->
+            <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>    
     </body>
 </html>
