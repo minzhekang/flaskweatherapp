@@ -4,20 +4,16 @@ from flask import Flask, render_template, request
 from werkzeug.contrib.fixers import ProxyFix
 
 app = Flask(__name__)
-app.config['DEBUG'] = True
 
 @app.route('/')
 def index():
     if not request.headers.getlist("X-Forwarded-For"):
         ip = request.remote_addr
-        
     else:
         ip = request.headers.getlist("X-Forwarded-For")[0]
-        
 
     s = requests.Session()
     response = s.get("http://ip-api.com/json/{}".format(ip)).json()
-
     country = response["city"]
     lat = str(response["lat"])
     long = str(response["lon"])

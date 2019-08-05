@@ -1,0 +1,64 @@
+.flipX {
+  animation: flip2 1s;
+}
+@keyframes flip2 {
+  from {
+    transform: rotateX(0deg)
+  }
+  to {
+    transform: rotateX(720deg)
+  }
+  }
+
+body{
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+@media only screen and (min-width: 767px) {
+h2, .h2 {
+
+  font-size: 120px;
+  }
+
+h3, .h3 {
+
+  font-size: 50px;
+  }
+
+}
+
+@media only screen and (max-width: 767px) {
+  h2, .h2 {
+    font-size: 60px;
+    }
+  
+  h3, .h3 {
+    font-size: 20px;
+    }
+  
+  }
+
+
+@keyframes gm-slidein {
+    from {
+        -webkit-transform:translate3d(0,-100%,0);
+        opacity:0;
+        transform:translate3d(0,-100%,0);
+    }
+    
+    to {
+        -webkit-transform:none;
+        opacity:1;
+        transform:none;
+    }
+}
+
+.gm-slidein {
+    -moz-animation:gm-slidein 3s 1;
+    -ms-animation:gm-slidein 3s 1;
+    -o-animation:gm-slidein 3s 1;
+    -webkit-animation:gm-slidein 3s 1;
+    animation:gm-slidein 3s 1;    
+}
+
+  #video { position: fixed; top: 0; min-width: 100%; min-height: 100%; }
